@@ -51,4 +51,14 @@ export class LoginPageComponent implements OnInit {
       this.router.navigate(['/private']);
     }).catch ( err => console.log(err.message));
   }
+
+  onClickLoginTwetter() {
+    console.log('Entrar con twitter');
+    this.authService.loginTwitter()
+    .then( (res) => {
+      console.log(res);
+      this.router.navigate(['/private']);
+    }).catch ( err => console.log(err.message));
+  }
+
 }

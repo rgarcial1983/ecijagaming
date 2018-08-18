@@ -9,7 +9,7 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 
 import { AuthGuard } from './guards/auth.guard';
 
-const routes: Routes = [
+const ROUTES: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
@@ -18,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(ROUTES)],
   exports: [RouterModule]
 })
 export class AppRoutingModuleModule { }

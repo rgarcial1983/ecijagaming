@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<div class="card">
+  <div class="card-body">
+    <form #socioForm="ngForm" (ngSubmit)="onSubmit(socioForm)">
+      <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="socioService.selectedSocio.$key">
+      <div class="form-group">
+        <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="socioService.selectedSocio.nombre" placeholder="Nombre...">
+      </div>
+      
+      <div class="form-group">
+        <input type="text" class="form-control" name="apellido1" #apellido1="ngModel" [(ngModel)]="socioService.selectedSocio.apellido1" placeholder="Primer apellido...">
+      </div>
+      
+      <div class="form-group">
+        <input type="text" class="form-control" name="apellido2" #apellido2="ngModel" [(ngModel)]="socioService.selectedSocio.apellido2" placeholder="Segundo apellido...">
+      </div>
+      
+      <div class="form-group">
+        <input type="text" class="form-control" name="email" #email="ngModel" [(ngModel)]="socioService.selectedSocio.email" placeholder="Email...">
+      </div>
+      
+      <div class="form-group">
+        <input type="text" class="form-control" name="telefono" #email="ngModel" [(ngModel)]="socioService.selectedSocio.telefono" placeholder="Teléfono...">
+      </div>
+
+      <div class="form-group d-flex justify-content-around">
+        <button class="btn btn-primary" type="submit">
+          <i class="fa fa-plus-circle"></i> Nuevo Socio
+        </button>
+        <button class="btn btn-secondary" type="submit" (click)="resetForm(socioForm)">
+          <i class="fas fa-sync-alt"></i> Limpiar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

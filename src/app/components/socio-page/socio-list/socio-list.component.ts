@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // Servicios
 import { SocioService } from '../../../services/socio.service';
 import { ToastrService} from 'ngx-toastr';
+
 // Clase
 import { Socio } from '../../../models/socio';
 
@@ -39,7 +40,7 @@ export class SocioListComponent implements OnInit {
   onDelete($key: string) {
     if (confirm('¿Está seguro de que quiere eliminar el registro?')) {
       this.socioService.deleteSocio($key);
-      this.toastr.success('Borrar Usuario', 'El registro se ha eliminado correctamente');
+      this.toastr.success('El socio se ha eliminado correctamente', 'Borrar Socio');
     }
   }
 

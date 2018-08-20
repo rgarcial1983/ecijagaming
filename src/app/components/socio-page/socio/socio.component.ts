@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 
 // Service
 import { SocioService } from '../../../services/socio.service';
+import { ToastrService} from 'ngx-toastr';
 
 // Class
 import { Socio } from '../../../models/socio';
@@ -15,7 +16,8 @@ import { Socio } from '../../../models/socio';
 export class SocioComponent implements OnInit {
 
   constructor(
-    private socioService: SocioService
+    private socioService: SocioService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -26,8 +28,10 @@ export class SocioComponent implements OnInit {
   onSubmit(socioForm: NgForm) {
     if (socioForm.value.$key == null) {
       this.socioService.insertSocio(socioForm.value);
+      this.toastr.success('Socio registrado correctamente', 'Alta Socio');
     } else {
       this.socioService.updateSocio(socioForm.value);
+      this.toastr.success('Socio actualizado correctamente', 'Actualización Socio');
     }
 
     this.resetForm(socioForm);

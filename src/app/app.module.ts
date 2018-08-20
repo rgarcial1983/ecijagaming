@@ -60,8 +60,8 @@ import { AuthGuard } from './guards/auth.guard';
     FlashMessagesModule,
     CommonModule,
     FormsModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [
     AuthService,

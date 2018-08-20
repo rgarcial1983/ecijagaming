@@ -16,8 +16,8 @@ import { Socio } from '../../../models/socio';
 export class SocioComponent implements OnInit {
 
   constructor(
-    private socioService: SocioService,
-    private toastr: ToastrService
+    public socioService: SocioService,
+    public toastr: ToastrService
   ) { }
 
   ngOnInit() {

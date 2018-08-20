@@ -16,8 +16,8 @@ export class SocioListComponent implements OnInit {
   socioList: Socio[];
 
   constructor(
-    private socioService: SocioService,
-    private toastr: ToastrService
+    public socioService: SocioService,
+    public toastr: ToastrService
   ) { }
 
   ngOnInit() {

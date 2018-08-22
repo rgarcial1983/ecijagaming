@@ -7,6 +7,7 @@ import { ToastrService} from 'ngx-toastr';
 
 // Class
 import { Socio } from '../../../models/socio';
+import { SocioListComponent } from '../socio-list/socio-list.component';
 
 @Component({
   selector: 'app-socio',
@@ -17,7 +18,8 @@ export class SocioComponent implements OnInit {
 
   constructor(
     public socioService: SocioService,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    public socioPage: SocioListComponent
   ) { }
 
   ngOnInit() {
@@ -33,7 +35,6 @@ export class SocioComponent implements OnInit {
       this.socioService.updateSocio(socioForm.value);
       this.toastr.success('Socio actualizado correctamente', 'Actualización Socio');
     }
-
     this.resetForm(socioForm);
   }
 

@@ -23,6 +23,7 @@ import { SocioListComponent } from './components/socio-page/socio-list/socio-lis
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+
 // Firebase
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';

@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+
 // Servicios
 import { SocioService } from '../../../services/socio.service';
 import { ToastrService} from 'ngx-toastr';
 
+
 // Clase
 import { Socio } from '../../../models/socio';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-socio-list',
@@ -42,6 +45,10 @@ export class SocioListComponent implements OnInit {
       this.socioService.deleteSocio($key);
       this.toastr.success('El socio se ha eliminado correctamente', 'Borrar Socio');
     }
+  }
+
+  resetForm() {
+    this.socioService.selectedSocio = new Socio();
   }
 
 }

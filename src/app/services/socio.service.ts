@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Socio } from '../models/socio';
+import { by } from 'protractor';
 
 
 @Injectable()
@@ -37,5 +38,18 @@ export class SocioService {
 
   deleteSocio($key: string) {
     this.socioList.remove($key);
+  }
+
+  searchSocio(filtro: string) {
+    console.log('Búsqueda de Socios:');
+    const ref = this.firebase.database.ref('socios/');
+
+    ref.orderByChild('nombre').on('child_added', function(data) {
+      // console.log(data.val().nombre);
+    });
+
+    ref.orderByChild('nombre').equalTo('Lucas').limitToFirst(3).on('child_added', function(snapshot) {
+      console.log(snapshot.val().apellido1);
+    });
   }
 }

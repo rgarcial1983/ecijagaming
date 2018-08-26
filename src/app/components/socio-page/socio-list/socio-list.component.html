@@ -8,49 +8,51 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
-        <app-socio></app-socio>
-    
+
+      <app-socio></app-socio>
+
     </div>
   </div>
 </div>
 
 <!-- Listado de socios -->
-<div class="row mt-1">
-  <div class="card">
-    <div class="card-body flexible">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido 1</th>
-            <th scope="col">Apellido 2</th>
-            <th scope="col">Email</th>
-            <th scope="col">Teléfono</th>
-            <th scope="col">Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let socio of socioList">
-            <td>{{socio.nombre}}</td>
-            <td>{{socio.apellido1}}</td>
-            <td>{{socio.apellido2}}</td>
-            <td>{{socio.email}}</td>
-            <td>{{socio.telefono}}</td>
-            <td>
-              <a class="btn btn-primary text-white" data-toggle="modal" data-target="#modalNuevoSocio" (click)="onEdit(socio)">
-                <i class="far fa-edit"></i>
-              </a>
-              <a class="btn btn-primary text-white" data-toggle="modal" data-target="#modalNuevoSocio">
-                <i class="fa fa-user-plus"></i>
-              </a>
-              <a class="btn btn-danger text-white" (click)="onDelete(socio.$key)">
-                <i class="fas fa-trash-alt"></i>
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="table-responsive mt-1">
+  
+  <form class="form-inline my-2 my-lg-2" onsubmit="return false">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar Socio" aria-label="Search" (keyup)="onSearchSocio(filtro)" id="filtro">
+      <!-- <button (click)="onSearchSocio(filtro.value)" class="btn btn-primary my-2 my-sm-0" type="button">Buscar</button>-->
+  </form>
+  
+  <table id="dtSocios" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th scope="col" class="th-sm" (click)="sortTable(0)"><i class="fa fa-sort float-right" style="cursor: pointer;" aria-hidden="true"></i>Nombre</th>
+        <th scope="col" class="th-sm" (click)="sortTable(1)"><i class="fa fa-sort float-right" style="cursor: pointer;" aria-hidden="true"></i>Apellido 1</th>
+        <th scope="col" class="th-sm" (click)="sortTable(2)"><i class="fa fa-sort float-right" style="cursor: pointer;" aria-hidden="true"></i>Apellido 2</th>
+        <th scope="col" class="th-sm" (click)="sortTable(3)"><i class="fa fa-sort float-right" style="cursor: pointer;" aria-hidden="true"></i>Email</th>
+        <th scope="col" class="th-sm" (click)="sortTable(4)"><i class="fa fa-sort float-right" style="cursor: pointer;" aria-hidden="true"></i>Teléfono</th>
+        <th scope="col" class="th-sm">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let socio of socioList">
+        <td>{{socio.nombre}}</td>
+        <td>{{socio.apellido1}}</td>
+        <td>{{socio.apellido2}}</td>
+        <td>{{socio.email}}</td>
+        <td>{{socio.telefono}}</td>
+        <td>
+          <a class="btn btn-primary text-white" data-toggle="modal" data-target="#modalNuevoSocio" (click)="onEdit(socio)">
+            <i class="far fa-edit"></i>
+          </a>
+          <a class="btn btn-primary text-white" data-toggle="modal" data-target="#modalNuevoSocio">
+            <i class="fa fa-user-plus"></i>
+          </a>
+          <a class="btn btn-danger text-white" (click)="onDelete(socio.$key)">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

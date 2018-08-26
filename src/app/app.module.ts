@@ -36,6 +36,7 @@ import { AuthService } from './services/auth.service';
 import { SocioService } from './services/socio.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
+import { BuscarSocioPorNombrePipe } from './pipes/buscar-socio-por-nombre.pipe';
 
 
 
@@ -50,7 +51,8 @@ import { AuthGuard } from './guards/auth.guard';
     NotFoundPageComponent,
     SocioPageComponent,
     SocioComponent,
-    SocioListComponent
+    SocioListComponent,
+    BuscarSocioPorNombrePipe
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,9 @@
       <li class="nav-item" *ngIf="!isLogin">
         <a class="nav-link" href="#" routerLink="/register">Registro</a>
       </li>
+      <li class="nav-item" *ngIf="isLogin">
+          <a class="nav-link" href="#" routerLink="/private">Administración</a>
+        </li>
       <li class="nav-item navbar-right" *ngIf="isLogin">
         <a class="nav-link" routerLink="/" (click)="onClickLogout()">Salir</a>
       </li>

@@ -40,7 +40,10 @@ export class LoginPageComponent implements OnInit {
     this.authService.loginGoogle()
     .then( (res) => {
       this.router.navigate(['/private']);
-    }).catch ( err => console.log(err.message));
+    }).catch ( err => {
+      this.flashMensaje.show(err,
+      {cssClass: 'alert-danger', timeout: 4000});
+     });
   }
 
   onClickLoginFacebook() {

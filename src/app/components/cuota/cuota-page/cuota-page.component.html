@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+
+  <div class="jumbotron mt-3">
+    <h3 class="display-4">Cuotas</h3>
+    <hr class="my-4">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <!--Dropdown primary-->
+        <div class="dropdown mt-3">
+          <!--Trigger-->
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropDownMes" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">Mes</button>
+          <button class="btn btn-primary btn-lg" type="button" id="btnConsultar"><i class="fas fa-search"></i></button>
+          <!--Menu Meses-->
+          <div class="dropdown-menu dropdown-primary">
+            <li *ngFor="let mes of mesesCompleto; let i=index" [id]="i+1" class="dropdown-item" (click)="onClickMes(mes, i+1)">{{mes}}</li>
+          </div>
+        </div>
+        <!-- Fin Dropdown primary-->
+
+        <!-- Tabla de cuotas -->
+        <div class="table-responsive mt-1">
+
+          <form class="form-inline my-2 my-lg-2" onsubmit="return false">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar Socio" aria-label="Search" (keyup)="onSearchSocio(filtro)"
+              id="filtro">
+          </form>
+
+          <table id="dtCuotas" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th scope="col" class="th-sm" (click)="sortTable(0)"><i class="fa fa-sort float-right" style="cursor: pointer;"
+                    aria-hidden="true"></i> Nombre</th>
+                <th *ngFor="let mes of meses; let i=index" [id]="i+1" scope="col" class="th-sm">{{mes}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let socio of socioList">
+                <td class="text-left">{{socio.nombre}} {{socio.apellido1}} {{socio.apellido2}}</td>
+                <td *ngFor="let mes of socio.cuota[0]; let i=index" [id]="i+1">
+                  <label class="switch">
+                    <div *ngIf="mes[i].value == true" >
+                      <input type="checkbox" checked>
+                    </div>
+                    <div *ngIf="mes[i].value == false" >
+                      <input type="checkbox">
+                    </div>
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+    <div class="mt-3 text-center">
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" routerLink="/private" role="button">Volver</a>
+      </p>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Socio } from '../models/socio';
-import { by } from 'protractor';
-
 
 @Injectable()
 export class SocioService {
-
   socioList: AngularFireList<any>;
   selectedSocio: Socio = new Socio();
 
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(private firebase: AngularFireDatabase) {}
 
   getSocios() {
-    return this.socioList = this.firebase.list('socios');
+    return (this.socioList = this.firebase.list('socios'));
   }
 
   insertSocio(socio: Socio) {
@@ -22,7 +19,52 @@ export class SocioService {
       apellido1: socio.apellido1,
       apellido2: socio.apellido2,
       email: socio.email,
-      telefono: socio.telefono
+      telefono: socio.telefono,
+      estado: true,
+      cuota: {
+        '2017': {
+          abr: false,
+          ago: false,
+          dic: false,
+          ene: false,
+          feb: false,
+          jul: false,
+          jun: false,
+          mar: false,
+          may: false,
+          nov: false,
+          oct: false,
+          sep: false
+        },
+        '2018': {
+          abr: false,
+          ago: false,
+          dic: false,
+          ene: false,
+          feb: false,
+          jul: false,
+          jun: false,
+          mar: false,
+          may: false,
+          nov: false,
+          oct: false,
+          sep: false
+        },
+        '2019': {
+          abr: false,
+          ago: false,
+          dic: false,
+          ene: false,
+          feb: false,
+          jul: false,
+          jun: false,
+          mar: false,
+          may: false,
+          nov: false,
+          oct: false,
+          sep: false
+        }
+      }
     });
   }
 
@@ -48,8 +90,12 @@ export class SocioService {
       // console.log(data.val().nombre);
     });
 
-    ref.orderByChild('nombre').equalTo('Lucas').limitToFirst(3).on('child_added', function(snapshot) {
-      console.log(snapshot.val().apellido1);
-    });
+    ref
+      .orderByChild('nombre')
+      .equalTo('Lucas')
+      .limitToFirst(3)
+      .on('child_added', function(snapshot) {
+        console.log(snapshot.val().apellido1);
+      });
   }
 }

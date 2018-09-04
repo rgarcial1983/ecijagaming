@@ -5,4 +5,6 @@ export class Socio {
     apellido2: string;
     email: string;
     telefono: string;
+    estado: string;
+    cuota: Array<string>;
 }

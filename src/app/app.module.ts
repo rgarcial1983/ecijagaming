@@ -37,6 +37,7 @@ import { SocioService } from './services/socio.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { BuscarSocioPorNombrePipe } from './pipes/buscar-socio-por-nombre.pipe';
+import { CuotaPageComponent } from './components/cuota/cuota-page/cuota-page.component';
 
 
 
@@ -52,7 +53,8 @@ import { BuscarSocioPorNombrePipe } from './pipes/buscar-socio-por-nombre.pipe';
     SocioPageComponent,
     SocioComponent,
     SocioListComponent,
-    BuscarSocioPorNombrePipe
+    BuscarSocioPorNombrePipe,
+    CuotaPageComponent
   ],
   imports: [
     BrowserModule,

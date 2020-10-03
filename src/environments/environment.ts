@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyB_VVjd6CyaiZ4cDk3CksH-VxbZCHiRyGA",
+    apiKey: "API_KEY",
     authDomain: "ecijagaming.firebaseapp.com",
     databaseURL: "https://ecijagaming.firebaseio.com",
     projectId: "ecijagaming",
